@@ -17,7 +17,7 @@ int main(void)
 	}
 	*/
 
-	cv::Mat src_img = cv::imread("../jcjk/circle.png", 1);
+	cv::Mat src_img = cv::imread("../letter_recognition/number.jpg", 1);
 	if(src_img.empty()) return -1;
 
 	cv::Mat dst_img, work_img;
@@ -27,7 +27,7 @@ int main(void)
 
 
 	std::vector<cv::Vec3f> circles;
-	cv::HoughCircles(work_img, circles, CV_HOUGH_GRADIENT, 1, 50, 20, 50);
+	cv::HoughCircles(work_img, circles, CV_HOUGH_GRADIENT, 1, 5, 1, 50);
 
 	std::vector<cv::Vec3f>::iterator it = circles.begin();
 	for(; it!=circles.end(); ++it) {
